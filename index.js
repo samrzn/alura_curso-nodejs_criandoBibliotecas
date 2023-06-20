@@ -1,3 +1,5 @@
+// ***EXPLICAÇÃO DOS EXEMPLOS NA PASTA "ANOTAÇÕES DE AULAS" > "ALURA"
+
 // Aula - Instalando dependências
 
 /* import chalk from "chalk";
@@ -29,12 +31,13 @@ uploadArquivo('./arquivos/texto.md');
 
 // Aula - Tratamento de erros
 
-import fs from 'fs';
+/* import fs from 'fs';
 import chalk from 'chalk';
 
 function treatErro(error) {
     console.log(error);
     throw new Error(chalk.red(error.code, 'Erro de diretório: arquivo não localizado.'));
+    // ***Todo objeto "error" possui uma propriedade .code que especifica o erro do código***
 }
 
 function uploadArquivo(pathArquivo) {
@@ -48,3 +51,24 @@ function uploadArquivo(pathArquivo) {
 }
 
 uploadArquivo('./arquivos/');
+ */
+
+
+// Aula - Promessas
+
+import fs from 'fs';
+import chalk from 'chalk';
+
+function treatErro(error) {
+    console.log(error);
+    throw new Error(chalk.red(error.code, 'Erro de diretório: arquivo não localizado.'));
+}
+
+function uploadArquivo(pathArquivo) {
+    const encoding = 'utf-8';
+    fs.promises.readFile(pathArquivo, encoding)
+        .then((text) => console.log(chalk.green(text)))
+        .catch(treatErro);
+}
+
+uploadArquivo('./arquivos/texto.md');
