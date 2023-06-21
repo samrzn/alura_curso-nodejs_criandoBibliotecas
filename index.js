@@ -56,7 +56,7 @@ uploadArquivo('./arquivos/');
 
 // Aula - Promessas
 
-import fs from 'fs';
+/* import fs from 'fs';
 import chalk from 'chalk';
 
 function treatErro(error) {
@@ -72,3 +72,28 @@ function uploadArquivo(pathArquivo) {
 }
 
 uploadArquivo('./arquivos/texto.md');
+ */
+
+
+// Aula - "async/await"
+
+import fs from 'fs';
+import chalk from 'chalk';
+
+function treatErro(error) {
+    console.log(error);
+    throw new Error(chalk.red(error.code, 'Erro de diretório: arquivo não localizado.'));
+}
+
+async function uploadArquivo(pathArquivo) {
+    try {
+        const encoding = 'utf-8';
+        const text = await fs.promises.readFile(pathArquivo, encoding)
+        console.log(chalk.green(text));
+    } catch (error) {
+        treatErro(error);
+    }
+}
+
+uploadArquivo('./arquivos/texto.md');
+uploadArquivo('./arquivos/');
