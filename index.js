@@ -75,7 +75,32 @@ uploadArquivo('./arquivos/texto.md');
  */
 
 
-// Aula - "async/await"
+// Aula - async/await
+
+/* import fs from 'fs';
+import chalk from 'chalk';
+
+function treatErro(error) {
+    console.log(error);
+    throw new Error(chalk.red(error.code, 'Erro de diretório: arquivo não localizado.'));
+}
+
+async function uploadArquivo(pathArquivo) {
+    try {
+        const encoding = 'utf-8';
+        const text = await fs.promises.readFile(pathArquivo, encoding)
+        console.log(chalk.green(text));
+    } catch (error) {
+        treatErro(error);
+    }
+}
+
+uploadArquivo('./arquivos/texto.md');
+uploadArquivo('./arquivos/');
+ */
+
+
+// Aula - try, catch e finally
 
 import fs from 'fs';
 import chalk from 'chalk';
@@ -92,6 +117,11 @@ async function uploadArquivo(pathArquivo) {
         console.log(chalk.green(text));
     } catch (error) {
         treatErro(error);
+    } finally {
+        console.log(chalk.yellow('operação concluída'));
+        /*  Lembrando que todo o código dentro do bloco finally sempre será executado. 
+            Não fará diferença se o processamento tiver sido efetuado com sucesso (o código manteve-se
+            dentro do bloco try) ou tiver gerado alguma exceção (o código foi lançada ao bloco catch).   */
     }
 }
 
