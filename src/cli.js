@@ -37,18 +37,22 @@ import chalk from "chalk";
 
 const caminhoFile = process.argv;
 
-async function printTexto(args) {
+function printTexto(resultado) {
+    console.log(chalk.yellowBright.bgWhite('Lista de links:'), resultado);
+}
+
+async function printLista(args) {
     const path = args[2];
 
     if (fs.lstatSync(path).isFile()) {
         const resultado = await uploadArquivo(args[2]);
-        console.log(chalk.yellowBright.bgWhite('Lista de links:'), resultado);
+        printTexto(resultado);
     } else if (fs.lstatSync(path).isDirectory()) {
         const files = await fs.promises.readdir(path);
         files.forEach(async (file) => {
             const lista = await uploadArquivo(`${path}/${file}`);
             console.log(`${path}/${file}`);
-            console.log(lista);
+            printTexto(lista);
         });
         console.log(files);
     }
@@ -58,4 +62,4 @@ async function printTexto(args) {
 // A partir de agora, a função "printTexto" verifica se a entrada é um arquivo ou diretório e executa o
 // bloco de código "if" responsável por lidar com cada caso e processar o comando, retornando resultados.
 
-printTexto(caminhoFile);
+printLista(caminhoFile);
