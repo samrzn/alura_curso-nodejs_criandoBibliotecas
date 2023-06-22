@@ -277,6 +277,41 @@ export default uploadArquivo;
 
 // Aula - Processando diretórios
 
+/* import fs from 'fs';
+import chalk from 'chalk';
+
+function treatErro(error) {
+    console.log(error);
+    throw new Error(chalk.red(error.code, 'Erro de diretório: arquivo não localizado.'));
+}
+
+function extractLink(text) {
+    const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
+    const captura = [...text.matchAll(regex)];
+    const resultado = captura.map(print => ({ [print[1]]: print[2] }));
+    return resultado.length !==0 ? resultado : 'Não há links no arquivo.';
+}
+
+async function uploadArquivo(pathArquivo) {
+    try {
+        const encoding = 'utf-8';
+        const text = await fs.promises.readFile(pathArquivo, encoding)
+        return extractLink(text);
+    } catch (error) {
+        treatErro(error);
+    }
+}
+
+// A partir de agora, o código tem a capacidade de lidar com arquivos e diretórios.
+// Exemplo comando para executar lib: 'node src/cli.js ./arquivos/texto.md'
+
+export default uploadArquivo;
+// ********************************************************************************************************************************************************************************************
+ */
+
+
+// Aula - Tratando novos erros
+
 import fs from 'fs';
 import chalk from 'chalk';
 
