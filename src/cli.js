@@ -110,3 +110,11 @@ async function printLista(args) {
 }
 
 printLista(caminhoFile);
+// ********************************************************************************************************************************************************************************************
+
+
+
+// Aula - Scripts
+
+// A partir de agora o código pode ser executado por linha de comando através do script abaixo:
+// npm run cli './caminhoDiretório/arquivo'
