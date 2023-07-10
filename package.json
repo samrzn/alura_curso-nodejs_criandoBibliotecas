@@ -5,12 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "cli": "node ./src/cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alura-cursos/2708-node-lib-md.git"
+    "url": "git+https://github.com/samrzn/alura_curso-nodejs_criandoBibliotecas"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/alura-cursos/2708-node-lib-md/issues"
   },
-  "homepage": "https://github.com/alura-cursos/2708-node-lib-md#readme",
+  "homepage": "https://github.com/samrzn/alura_curso-nodejs_criandoBibliotecas",
   "dependencies": {
     "chalk": "5.0.1"
   }

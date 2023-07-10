@@ -103,7 +103,7 @@ async function printLista(args) {
         files.forEach(async (file) => {
             const lista = await uploadArquivo(`${path}/${file}`);
             console.log(`${path}/${file}`); // imprime array conteúdo do parâmetro passado na função acima.
-            printTexto(lista, file); // imprime na tela o conteúdo dos arrays identificados por arquivo.
+            printTexto(lista, file); // imprime na tela o conteúdo (parâmetro "lista") dos arrays identificados por arquivo (parâmetro "file").
         });
         console.log(files);
     }
@@ -114,6 +114,7 @@ printLista(caminhoFile);
 // Caminho relativo: ./arquivos/texto.md
 // Caminho absoluto: C:/Users/n134389/Documents/alura_curso-nodejs_criandoBibliotecas/arquivos/texto.md
 // "../" (sem aspas): sobe um nível na hierarquia de diretórios
+// Lib "path" do Node.js permite manipular caminhos absolutos com melhor escalabilidade de uso.
 // ********************************************************************************************************************************************************************************************
 
 
@@ -121,4 +122,4 @@ printLista(caminhoFile);
 // Aula - Scripts
 
 // A partir de agora o código pode ser executado por linha de comando através do script abaixo:
-// npm run cli './caminhoDiretório/arquivo'
+// npm run cli './caminhoDiretório/arquivo' ou './caminhoDiretório'
