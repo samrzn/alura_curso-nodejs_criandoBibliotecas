@@ -324,7 +324,7 @@ function extractLink(text) {
     const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
     const captura = [...text.matchAll(regex)];
     const resultado = captura.map(print => ({ [print[1]]: print[2] }));
-    return resultado.length !==0 ? resultado : 'Não há links no arquivo.';
+    return resultado.length !== 0 ? resultado : 'Não há links no arquivo.';
 }
 
 async function uploadArquivo(pathArquivo) {

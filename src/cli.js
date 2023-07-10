@@ -110,6 +110,10 @@ async function printLista(args) {
 }
 
 printLista(caminhoFile);
+
+// Caminho relativo: ./arquivos/texto.md
+// Caminho absoluto: C:/Users/n134389/Documents/alura_curso-nodejs_criandoBibliotecas/arquivos/texto.md
+// "../" (sem aspas): sobe um nível na hierarquia de diretórios
 // ********************************************************************************************************************************************************************************************
 
 
